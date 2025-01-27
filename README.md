@@ -1,5 +1,7 @@
 # Desafio Técnico - Desenvolvedor Java
 
+![Imagem da aplicação](ajucar_ui.png)
+
 ## Objetivo
 
 O objetivo deste desafio é desenvolver um sistema simples para gerenciar veículos de uma frota.
