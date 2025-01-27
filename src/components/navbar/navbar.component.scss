@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background-color: #2C3E50;
+  color: #ECF0F1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 60px;
+
+  .title {
+    font-size: 28px;
+    font-weight: 700;
+    flex: 1;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+    color: #ECF0F1;
+  }
+
+  .home-button {
+    color: #ECF0F1;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #3498DB;
+    }
+
+    mat-icon {
+      font-size: 28px;
+    }
+  }
+}
