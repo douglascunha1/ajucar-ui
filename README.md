@@ -41,6 +41,12 @@ Por fim, instalar o node usando o comando abaixo:
 nvm install 20
 ```
 
+Com isso, basta instalar o Angular CLI usando o comando abaixo:
+
+```bash
+npm install -g @angular/cli
+```
+
 Em seguida, basta executar o comando `npm install` no diretório `raiz` do projeto para instalar as dependências do projeto.
 
 ## Executando o projeto
