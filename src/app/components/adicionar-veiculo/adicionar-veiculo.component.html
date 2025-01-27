@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <h1 class="form-title">Adicionar Veículo</h1>
+  <form [formGroup]="veiculoForm" (ngSubmit)="onSubmit()" class="business-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo de Veículo</mat-label>
+      <mat-select formControlName="tipoVeiculo" required>
+        <mat-option *ngFor="let tipo of tiposVeiculo" [value]="tipo.id">
+          {{ tipo.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Modelo</mat-label>
+      <input matInput formControlName="modelo" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Fabricante</mat-label>
+      <input matInput formControlName="fabricante" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Ano</mat-label>
+      <input matInput type="number" formControlName="ano" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Preço</mat-label>
+      <input matInput type="number" formControlName="preco" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Cor</mat-label>
+      <input matInput formControlName="cor">
+    </mat-form-field>
+
+    <mat-form-field
+      appearance="fill"
+      *ngIf="veiculoForm.get('tipoVeiculo')?.value === 0"
+    >
+      <mat-label>Portas</mat-label>
+      <input matInput type="number" formControlName="quantidadePortas" required>
+    </mat-form-field>
+
+    <mat-form-field
+      appearance="fill"
+      *ngIf="veiculoForm.get('tipoVeiculo')?.value === 0"
+    >
+      <mat-label>Combustível</mat-label>
+      <input matInput type="string" formControlName="tipoCombustivel" required>
+    </mat-form-field>
+
+    <mat-form-field
+      appearance="fill"
+      *ngIf="veiculoForm.get('tipoVeiculo')?.value === 1"
+    >
+      <mat-label>Cilindrada</mat-label>
+      <input matInput type="number" formControlName="cilindrada" required>
+    </mat-form-field>
+
+    <div class="form-actions">
+      <button mat-raised-button color="warn" type="button" routerLink="/veiculos" class="cancel-button">Cancelar</button>
+      <button mat-raised-button color="primary" type="submit" class="submit-button">Salvar</button>
+    </div>
+  </form>
+</div>

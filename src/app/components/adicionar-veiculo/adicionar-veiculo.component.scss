@@ -1,0 +1,76 @@
+.container {
+  padding: 24px;
+}
+
+.form-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2C3E50;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.business-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  mat-form-field {
+    width: 100%;
+
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
+
+    .mat-form-field-outline {
+      border-color: #34495E;
+    }
+
+    .mat-form-field-label {
+      color: #34495E;
+    }
+
+    .mat-input-element {
+      color: #2C3E50;
+    }
+  }
+}
+
+.form-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  justify-content: center;
+
+  .submit-button {
+    background-color: #34495E;
+    color: #ECF0F1;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #3498DB;
+    }
+  }
+
+  .cancel-button {
+    background-color: #E74C3C;
+    color: #ECF0F1;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #C0392B;
+    }
+  }
+}
+
+.sucesso-snackbar {
+  background-color: #2ECC71;
+  color: #ECF0F1;
+  font-weight: 500;
+}
+
+.erro-snackbar {
+  background-color: #E74C3C;
+  color: #ECF0F1;
+  font-weight: 500;
+}

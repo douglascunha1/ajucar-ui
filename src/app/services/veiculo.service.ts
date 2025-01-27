@@ -13,4 +13,12 @@ export class VeiculoService {
   listarVeiculos(filtros?: any): Observable<Veiculo[]> {
     return this.http.get<Veiculo[]>(`${this.apiUrl}/veiculos`, { params: filtros });
   }
+
+  adicionarVeiculo(veiculo: Veiculo): Observable<Veiculo> {
+    return this.http.post<Veiculo>(`${this.apiUrl}/veiculos`, veiculo);
+  }
+
+  excluirVeiculo(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/veiculos/${id}`);
+  }
 }
