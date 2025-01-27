@@ -1,59 +1,50 @@
-# AjucarUi
+# Desafio Técnico - Desenvolvedor Java
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.3.
+## Objetivo
 
-## Development server
+O objetivo deste desafio é desenvolver um sistema simples para gerenciar veículos de uma frota.
 
-To start a local development server, run:
+## Tecnologias utilizadas
 
-```bash
-ng serve
-```
+- Java 17
+- Spring Boot
+- Spring Data JPA
+- MySQL
+- Maven
+- Docker
+- Angular
+- Angular Material
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Configurando o ambiente local
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Para configurar o ambiente localmente, é necessário ter o NPM instalado. Sugiro utilizar o [NVM](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating).
+Para instalar o NVM no **Linux**, basta seguir os seguintes passos:
 
 ```bash
-ng generate --help
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+
+# ou
+
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 ```
 
-## Building
-
-To build the project run:
+Em seguida, adicionar o seguinte trecho no arquivo `~/.bashrc` ou `~/.bash_profile` ou `~/.zshrc`:
 
 ```bash
-ng build
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Por fim, instalar o node usando o comando abaixo:
 
 ```bash
-ng test
+nvm install 20
 ```
 
-## Running end-to-end tests
+Em seguida, basta executar o comando `npm install` no diretório `raiz` do projeto para instalar as dependências do projeto.
 
-For end-to-end (e2e) testing, run:
+## Executando o projeto
 
-```bash
-ng e2e
-```
+Para executar o projeto, basta executar o comando `ng serve` no diretório `raiz` do projeto. Em seguida, basta acessar o endereço `http://localhost:4200` no navegador.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
