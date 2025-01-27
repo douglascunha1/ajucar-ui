@@ -1,0 +1,86 @@
+.container {
+  padding: 24px;
+}
+
+.form-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.business-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  mat-form-field {
+    width: 100%;
+
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
+
+    .mat-form-field-outline {
+      border-color: #34495e;
+    }
+
+    .mat-form-field-label {
+      color: #34495e;
+    }
+
+    .mat-input-element {
+      color: #2c3e50;
+    }
+
+    .mat-error {
+      color: #e74c3c;
+      font-size: 12px;
+    }
+  }
+}
+
+.form-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  justify-content: center;
+
+  .submit-button {
+    background-color: #34495e;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #3498db;
+    }
+
+    &:disabled {
+      background-color: #95a5a6;
+      cursor: not-allowed;
+    }
+  }
+
+  .cancel-button {
+    background-color: #e74c3c;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #c0392b;
+    }
+  }
+}
+
+.erro-snackbar {
+  background-color: #e74c3c;
+  color: #ecf0f1;
+  font-weight: 500;
+}
+
+.sucesso-snackbar {
+  background-color: #4caf50;
+  color: white;
+  font-weight: 500;
+}

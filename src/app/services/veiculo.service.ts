@@ -22,6 +22,13 @@ export class VeiculoService {
     return this.http.get<Veiculo>(`${this.apiUrl}/veiculos/${id}`);
   }
 
+  atualizarVeiculo(
+    id: number | undefined,
+    veiculo: Veiculo
+  ): Observable<Veiculo> {
+    return this.http.put<Veiculo>(`${this.apiUrl}/veiculos/${id}`, veiculo);
+  }
+
   excluirVeiculo(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/veiculos/${id}`);
   }

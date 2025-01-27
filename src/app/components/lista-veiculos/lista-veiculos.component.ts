@@ -17,6 +17,8 @@ import {MatFormField, MatLabel} from '@angular/material/form-field';
 import {MatOption, MatSelect} from '@angular/material/select';
 import {MatInput} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
+import {MatDialog} from '@angular/material/dialog';
+import {DetalharVeiculoComponent} from '../detalhar-veiculo/detalhar-veiculo.component';
 
 @Component({
   selector: 'app-lista-veiculos',
@@ -53,12 +55,20 @@ export class ListaVeiculosComponent implements OnInit {
   ];
   dataSource: Veiculo[] = [];
   snackBar = inject(MatSnackBar);
+  dialog = inject(MatDialog);
   filtroTipo: string = '';
   filtroCor: string = '';
   filtroModelo: string = '';
   filtroFabricante: string = '';
   filtroAno: number | null = null;
 
+  openDialog(id: number) {
+    this.dialog.open(DetalharVeiculoComponent, {
+      width: '60vw',
+      maxWidth: '60vw',
+      data: { id },
+    });
+  }
 
   constructor(private veiculoService: VeiculoService) {}
 
