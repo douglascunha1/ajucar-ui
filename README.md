@@ -51,6 +51,8 @@ npm install -g @angular/cli
 
 Em seguida, basta executar o comando `npm install` no diretório `raiz` do projeto para instalar as dependências do projeto.
 
+Para configurar o backend, [clique aqui](https://github.com/douglascunha1/ajucar)
+
 ## Executando o projeto
 
 Para executar o projeto, basta executar o comando `ng serve` no diretório `raiz` do projeto. Em seguida, basta acessar o endereço `http://localhost:4200` no navegador.
