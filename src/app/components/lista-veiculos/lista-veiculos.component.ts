@@ -79,6 +79,7 @@ export class ListaVeiculosComponent implements OnInit {
     }
 
     this.veiculoService.listarVeiculos(filtros).subscribe((veiculos) => {
+      console.log(veiculos);
       this.dataSource = veiculos;
     });
   }

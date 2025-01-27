@@ -7,7 +7,7 @@ import { Veiculo } from '../models/veiculo.model';
   providedIn: 'root',
 })
 export class VeiculoService {
-  private apiUrl = '/api'; // Usa o proxy
+  private apiUrl = '/api';
   constructor(private http: HttpClient) {}
 
   listarVeiculos(filtros?: any): Observable<Veiculo[]> {
@@ -16,6 +16,10 @@ export class VeiculoService {
 
   adicionarVeiculo(veiculo: Veiculo): Observable<Veiculo> {
     return this.http.post<Veiculo>(`${this.apiUrl}/veiculos`, veiculo);
+  }
+
+  buscarVeiculoPorId(id: number): Observable<Veiculo> {
+    return this.http.get<Veiculo>(`${this.apiUrl}/veiculos/${id}`);
   }
 
   excluirVeiculo(id: number): Observable<void> {
