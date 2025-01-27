@@ -1,0 +1,132 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <button
+    mat-raised-button
+    color="primary"
+    routerLink="/adicionar-veiculo"
+    class="add-button"
+  >
+    <mat-icon>add</mat-icon>
+    Adicionar Veículo
+  </button>
+
+  <div class="filtros-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo</mat-label>
+      <mat-select [(ngModel)]="filtroTipo">
+        <mat-option value="">Todos</mat-option>
+        <mat-option value="0">Carro</mat-option>
+        <mat-option value="1">Moto</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Modelo</mat-label>
+      <input matInput [(ngModel)]="filtroModelo" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Fabricante</mat-label>
+      <input matInput [(ngModel)]="filtroFabricante" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Ano de Fabricação</mat-label>
+      <input matInput type="number" [(ngModel)]="filtroAno" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Cor</mat-label>
+      <input matInput [(ngModel)]="filtroCor" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="aplicarFiltros()">
+      <mat-icon>search</mat-icon>
+      Filtrar
+    </button>
+  </div>
+
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    class="mat-elevation-z8 business-table"
+  >
+    <ng-container matColumnDef="modelo">
+      <th mat-header-cell *matHeaderCellDef>Modelo</th>
+      <td mat-cell *matCellDef="let veiculo" [matTooltip]="veiculo.modelo">
+        {{ limitarTexto(capitalizarPrimeiraLetra(veiculo.modelo), 25) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="fabricante">
+      <th mat-header-cell *matHeaderCellDef>Fabricante</th>
+      <td mat-cell *matCellDef="let veiculo" [matTooltip]="veiculo.fabricante">
+        {{ limitarTexto(capitalizarPrimeiraLetra(veiculo.fabricante), 25) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="ano">
+      <th mat-header-cell *matHeaderCellDef>Ano</th>
+      <td mat-cell *matCellDef="let veiculo">{{ veiculo.ano }}</td>
+    </ng-container>
+    <ng-container matColumnDef="preco">
+      <th mat-header-cell *matHeaderCellDef>Preço</th>
+      <td mat-cell *matCellDef="let veiculo">
+        {{ formatarMoeda(veiculo.preco) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="cor">
+      <th mat-header-cell *matHeaderCellDef>Cor</th>
+      <td mat-cell *matCellDef="let veiculo" [matTooltip]="veiculo.cor">
+        {{ limitarTexto(capitalizarPrimeiraLetra(veiculo.cor), 25) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="quantidadePortas">
+      <th mat-header-cell *matHeaderCellDef>Portas</th>
+      <td mat-cell *matCellDef="let veiculo">{{ veiculo.quantidadePortas || 'N/A' }}</td>
+    </ng-container>
+    <ng-container matColumnDef="tipoCombustivel">
+      <th mat-header-cell *matHeaderCellDef>Combustível</th>
+      <td
+        mat-cell
+        *matCellDef="let veiculo"
+        [matTooltip]="veiculo.tipoCombustivel"
+      >
+        {{
+          limitarTexto(capitalizarPrimeiraLetra(veiculo.tipoCombustivel), 20) || 'N/A'
+        }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="cilindrada">
+      <th mat-header-cell *matHeaderCellDef>Cilindradas</th>
+      <td mat-cell *matCellDef="let veiculo">{{ veiculo.cilindrada || 'N/A' }}</td>
+    </ng-container>
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let veiculo">
+        <button
+          mat-icon-button
+          color="primary"
+          [routerLink]="['/editar-veiculo', veiculo.id]"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          color="warn"
+          (click)="excluirVeiculo(veiculo.id)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+<!--        <button mat-icon-button color="accent" (click)="openDialog(veiculo.id)">-->
+<!--          <mat-icon>info</mat-icon>-->
+<!--        </button>-->
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      class="table-row"
+    ></tr>
+  </table>
+</div>
